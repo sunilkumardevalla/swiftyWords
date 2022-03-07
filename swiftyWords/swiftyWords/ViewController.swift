@@ -97,21 +97,28 @@ class ViewController: UIViewController {
             
         ])
         
+        //set some values for the width and height of each button
         let width = 150
         let height = 80
         
+        //create 20 buttons as a 4x5 grid
         for row in 0..<4 {
             for col in 0..<5 {
+                //Create a new button and give it a big font size.
                 let letterButton = UIButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
                 
+                //Give the button some temporary text so we can see it on-screen
                 letterButton.setTitle("AQI", for: .normal)
                 
+                //Caluclate the frame of this button using its column and row.
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
                 
+                //add it to the buttons view.
                 buttonsView.addSubview(letterButton)
                 
+                //and also to letter buttons array.
                 letterButtons.append(letterButton)
             }
         }
