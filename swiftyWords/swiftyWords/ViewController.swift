@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     var scoreLabel: UILabel!
     var letterButtons = [UIButton]()
     
+    var activatedButtons = [UIButton]()
+    var solutions = [String]()
+    
     override func loadView() {
         view = UIView()
         view.backgroundColor = .lightGray
