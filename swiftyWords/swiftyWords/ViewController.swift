@@ -56,11 +56,13 @@ class ViewController: UIViewController {
         let submit = UIButton(type: .system)
         submit.translatesAutoresizingMaskIntoConstraints = false
         submit.setTitle("SUBMIT", for: .normal)
+        submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
         view.addSubview(submit)
         
         let clear = UIButton(type: .system)
         clear.translatesAutoresizingMaskIntoConstraints = false
         clear.setTitle("CLEAR", for: .normal)
+        clear.addTarget(self, action: #selector(clearTapped), for: .touchUpInside)
         view.addSubview(clear)
         
         let buttonsView = UIView()
@@ -114,6 +116,9 @@ class ViewController: UIViewController {
                 //Give the button some temporary text so we can see it on-screen
                 letterButton.setTitle("AQI", for: .normal)
                 
+                //Action when button tapped
+                letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+                
                 //Caluclate the frame of this button using its column and row.
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
@@ -130,6 +135,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func letterTapped(_ sender: UIButton) {
+        
+        
+    }
+    
+    @objc func submitTapped(_ sender: UIButton) {
+        
+        
+    }
+    
+    @objc func clearTapped(_ sender: UIButton) {
+        
+        
     }
 
 
