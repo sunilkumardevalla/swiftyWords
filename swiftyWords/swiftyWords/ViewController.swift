@@ -175,6 +175,9 @@ class ViewController: UIViewController {
                 present(ac, animated: true)
             }
         } else {
+            currentAnswer.text = ""
+            score -= 1
+            
             let ac = UIAlertController(title: "Wrong Answer", message: "Try again with different button pattern", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
