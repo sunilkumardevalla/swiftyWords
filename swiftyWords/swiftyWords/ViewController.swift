@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var activatedButtons = [UIButton]()
     var solutions = [String]()
+    var hiddenButton = [UIButton]()
     
     var score = 0 {
         didSet {
@@ -152,6 +153,7 @@ class ViewController: UIViewController {
         
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activatedButtons.append(sender)
+        hiddenButton.append(sender)
         sender.isHidden = true
         
     }
@@ -165,17 +167,16 @@ class ViewController: UIViewController {
             var splitAnswers = answersLabel.text?.components(separatedBy: "\n")
             splitAnswers?[solutionPosition] = answerText
             answersLabel.text = splitAnswers?.joined(separator: "\n")
-
+            
             currentAnswer.text = ""
             score += 1
 
-            if score % 7 == 0 {
+            if hiddenButton.count == 20 {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
         } else {
-            currentAnswer.text = ""
             score -= 1
             
             let ac = UIAlertController(title: "Wrong Answer", message: "Try again with different button pattern", preferredStyle: .alert)
